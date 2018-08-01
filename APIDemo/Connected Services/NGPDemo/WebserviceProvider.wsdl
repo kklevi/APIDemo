@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://eCertWebServiceProvider" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://eCertWebServiceProvider" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://eCertWebServiceProvider">
+      <s:element name="IsAlive">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsAliveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsAliveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Providername">
+        <s:complexType />
+      </s:element>
+      <s:element name="ProvidernameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProvidernameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameter">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebServiceProviderSOAPHeader" type="tns:WebServiceProviderSOAPHeader" />
+      <s:complexType name="WebServiceProviderSOAPHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="00000000-0000-0000-0000-000000000000" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="DE-DE" name="Language" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetDataSchema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataSchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataSchemaResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataParameterSchema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataParameterSchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataParameterSchemaResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Logout">
+        <s:complexType />
+      </s:element>
+      <s:element name="LogoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogoutResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameter">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendDataResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendDataSchema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendDataSchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSendDataSchemaResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MethodListGetData">
+        <s:complexType />
+      </s:element>
+      <s:element name="MethodListGetDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MethodListGetDataResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MethodListSendData">
+        <s:complexType />
+      </s:element>
+      <s:element name="MethodListSendDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MethodListSendDataResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTokenInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTokenInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTokenInfoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IsAliveSoapIn">
+    <wsdl:part name="parameters" element="tns:IsAlive" />
+  </wsdl:message>
+  <wsdl:message name="IsAliveSoapOut">
+    <wsdl:part name="parameters" element="tns:IsAliveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProvidernameSoapIn">
+    <wsdl:part name="parameters" element="tns:Providername" />
+  </wsdl:message>
+  <wsdl:message name="ProvidernameSoapOut">
+    <wsdl:part name="parameters" element="tns:ProvidernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataWebServiceProviderSOAPHeader">
+    <wsdl:part name="WebServiceProviderSOAPHeader" element="tns:WebServiceProviderSOAPHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataSchema" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSchemaWebServiceProviderSOAPHeader">
+    <wsdl:part name="WebServiceProviderSOAPHeader" element="tns:WebServiceProviderSOAPHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDataParameterSchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataParameterSchema" />
+  </wsdl:message>
+  <wsdl:message name="GetDataParameterSchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataParameterSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataParameterSchemaWebServiceProviderSOAPHeader">
+    <wsdl:part name="WebServiceProviderSOAPHeader" element="tns:WebServiceProviderSOAPHeader" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutWebServiceProviderSOAPHeader">
+    <wsdl:part name="WebServiceProviderSOAPHeader" element="tns:WebServiceProviderSOAPHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SendData" />
+  </wsdl:message>
+  <wsdl:message name="SendDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SendDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendDataWebServiceProviderSOAPHeader">
+    <wsdl:part name="WebServiceProviderSOAPHeader" element="tns:WebServiceProviderSOAPHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSendDataSchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSendDataSchema" />
+  </wsdl:message>
+  <wsdl:message name="GetSendDataSchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSendDataSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSendDataSchemaWebServiceProviderSOAPHeader">
+    <wsdl:part name="WebServiceProviderSOAPHeader" element="tns:WebServiceProviderSOAPHeader" />
+  </wsdl:message>
+  <wsdl:message name="MethodListGetDataSoapIn">
+    <wsdl:part name="parameters" element="tns:MethodListGetData" />
+  </wsdl:message>
+  <wsdl:message name="MethodListGetDataSoapOut">
+    <wsdl:part name="parameters" element="tns:MethodListGetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="MethodListGetDataWebServiceProviderSOAPHeader">
+    <wsdl:part name="WebServiceProviderSOAPHeader" element="tns:WebServiceProviderSOAPHeader" />
+  </wsdl:message>
+  <wsdl:message name="MethodListSendDataSoapIn">
+    <wsdl:part name="parameters" element="tns:MethodListSendData" />
+  </wsdl:message>
+  <wsdl:message name="MethodListSendDataSoapOut">
+    <wsdl:part name="parameters" element="tns:MethodListSendDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="MethodListSendDataWebServiceProviderSOAPHeader">
+    <wsdl:part name="WebServiceProviderSOAPHeader" element="tns:WebServiceProviderSOAPHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTokenInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTokenInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenInfoWebServiceProviderSOAPHeader">
+    <wsdl:part name="WebServiceProviderSOAPHeader" element="tns:WebServiceProviderSOAPHeader" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceProviderSoap">
+    <wsdl:operation name="IsAlive">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks if service is alive.</wsdl:documentation>
+      <wsdl:input message="tns:IsAliveSoapIn" />
+      <wsdl:output message="tns:IsAliveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Providername">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the Providername of the service.</wsdl:documentation>
+      <wsdl:input message="tns:ProvidernameSoapIn" />
+      <wsdl:output message="tns:ProvidernameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gives back data from the webservice.</wsdl:documentation>
+      <wsdl:input message="tns:GetDataSoapIn" />
+      <wsdl:output message="tns:GetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSchema">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data xsd schema. With this schema a consumer can validate the data he gets back from the 'GetData' webservice method.</wsdl:documentation>
+      <wsdl:input message="tns:GetDataSchemaSoapIn" />
+      <wsdl:output message="tns:GetDataSchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataParameterSchema">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get parameter xsd schema. With this schema a consumer can validate the  parameter for the 'GetData' webservice method.</wsdl:documentation>
+      <wsdl:input message="tns:GetDataParameterSchemaSoapIn" />
+      <wsdl:output message="tns:GetDataParameterSchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login user with username and password. Gives back a token for further data access.</wsdl:documentation>
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Logout user.</wsdl:documentation>
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send data to the web service.</wsdl:documentation>
+      <wsdl:input message="tns:SendDataSoapIn" />
+      <wsdl:output message="tns:SendDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendDataSchema">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get xsd schema for data to send. With this schema a consumer can validate the data for the 'SendData' webservice method.</wsdl:documentation>
+      <wsdl:input message="tns:GetSendDataSchemaSoapIn" />
+      <wsdl:output message="tns:GetSendDataSchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MethodListGetData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lists all get methods.</wsdl:documentation>
+      <wsdl:input message="tns:MethodListGetDataSoapIn" />
+      <wsdl:output message="tns:MethodListGetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MethodListSendData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lists all send methods.</wsdl:documentation>
+      <wsdl:input message="tns:MethodListSendDataSoapIn" />
+      <wsdl:output message="tns:MethodListSendDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Token Information.</wsdl:documentation>
+      <wsdl:input message="tns:GetTokenInfoSoapIn" />
+      <wsdl:output message="tns:GetTokenInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceProviderSoap" type="tns:WebServiceProviderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsAlive">
+      <soap:operation soapAction="http://eCertWebServiceProvider/IsAlive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Providername">
+      <soap:operation soapAction="http://eCertWebServiceProvider/Providername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://eCertWebServiceProvider/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDataWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSchema">
+      <soap:operation soapAction="http://eCertWebServiceProvider/GetDataSchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDataSchemaWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataParameterSchema">
+      <soap:operation soapAction="http://eCertWebServiceProvider/GetDataParameterSchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDataParameterSchemaWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://eCertWebServiceProvider/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://eCertWebServiceProvider/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LogoutWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendData">
+      <soap:operation soapAction="http://eCertWebServiceProvider/SendData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendDataWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendDataSchema">
+      <soap:operation soapAction="http://eCertWebServiceProvider/GetSendDataSchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSendDataSchemaWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MethodListGetData">
+      <soap:operation soapAction="http://eCertWebServiceProvider/MethodListGetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:MethodListGetDataWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MethodListSendData">
+      <soap:operation soapAction="http://eCertWebServiceProvider/MethodListSendData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:MethodListSendDataWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenInfo">
+      <soap:operation soapAction="http://eCertWebServiceProvider/GetTokenInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTokenInfoWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceProviderSoap12" type="tns:WebServiceProviderSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsAlive">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/IsAlive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Providername">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/Providername" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/GetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDataWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSchema">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/GetDataSchema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDataSchemaWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataParameterSchema">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/GetDataParameterSchema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDataParameterSchemaWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LogoutWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendData">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/SendData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendDataWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendDataSchema">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/GetSendDataSchema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSendDataSchemaWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MethodListGetData">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/MethodListGetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:MethodListGetDataWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MethodListSendData">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/MethodListSendData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:MethodListSendDataWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenInfo">
+      <soap12:operation soapAction="http://eCertWebServiceProvider/GetTokenInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTokenInfoWebServiceProviderSOAPHeader" part="WebServiceProviderSOAPHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceProvider">
+    <wsdl:port name="WebServiceProviderSoap" binding="tns:WebServiceProviderSoap">
+      <soap:address location="https://nongmo.e-cert.net/APIDemo/WebserviceProvider.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceProviderSoap12" binding="tns:WebServiceProviderSoap12">
+      <soap12:address location="https://nongmo.e-cert.net/APIDemo/WebserviceProvider.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
